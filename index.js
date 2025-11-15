@@ -8,8 +8,8 @@ import db from './Database/db.js';
 import Doner from './Database/DonerSchema.js';
 
 const PORT = process.env.PORT || 5000;
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 const app = express();
 
