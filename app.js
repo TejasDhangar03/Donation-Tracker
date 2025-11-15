@@ -77,9 +77,9 @@ app.get('/data', async (req, res) => {
 
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}`);
+// });
 
 // for vercel serverless deployment
 export default app;
