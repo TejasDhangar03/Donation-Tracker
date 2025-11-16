@@ -1,12 +1,15 @@
 import bodyParser from 'body-parser';
 import express from 'express';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import cors from 'cors';
 
 import db from './Database/db.js';
 import Doner from './Database/DonerSchema.js';
 
 const PORT = process.env.PORT || 5000;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -15,12 +18,11 @@ db();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use(express.static(path.join(process.cwd(), "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-  const filePath = path.join(process.cwd(), "public", "index.html");
-  res.sendFile(filePath);
+  res.sendFile(path.join(__dirname,"public","index.html"));
 });
 
 app.get('/data', async (req, res) => {
