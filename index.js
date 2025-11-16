@@ -21,13 +21,13 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname,"public","index.html"));
-// });
+app.get('/', (req, res) => {
+  res.sendFile(path.join(process.cwd(), "public", "index.html"));
+});
 
 app.get('/data', async (req, res) => {
   try {
-    // 1️⃣ Group by month (from string date) and sum amounts
+    // 1️⃣ Group by month (from string date) and sum amount
     const monthly = await Doner.aggregate([
       {
         $addFields: {
@@ -75,9 +75,10 @@ app.get('/data', async (req, res) => {
 
 });
 
+export default app;
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
 // for vercel serverless deployment
-export default app;
