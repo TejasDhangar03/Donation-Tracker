@@ -1,10 +1,7 @@
 {
   "functions": {
     "index.js": {
-      "includeFiles": [
-        "Public/**",
-        "Database/**"
-      ]
+      "includeFiles": "{Public,Database}/**"
     }
   },
   "rewrites": [
