@@ -1,10 +1,15 @@
 {
   "functions": {
-    "api/**/*.js": {
-      "includeFiles": "public/**"
+    "index.js": {
+      "includeFiles": [
+        "Public/**",
+        "Database/**"
+      ]
     }
   },
   "rewrites": [
-    { "source": "/data", "destination": "/api/index.js" }
+    { "source": "/", "destination": "/Public/index.html" },
+    { "source": "/data", "destination": "/index.js" },
+    { "source": "/(.*)", "destination": "/Public/$1" }
   ]
 }
