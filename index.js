@@ -8,8 +8,8 @@ import db from './Database/db.js';
 import Doner from './Database/DonerSchema.js';
 
 const PORT = process.env.PORT || 5000;
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -18,12 +18,11 @@ db();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
-
-
 app.get('/', (req, res) => {
-  res.sendFile(path.join("public","index.html"));
+  res.sendFile(path.join(__dirname,"public","index.html"));
 
 });
 
@@ -77,9 +76,9 @@ app.get('/data', async (req, res) => {
 
 });
 
-// app.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 // for vercel serverless deployment
-export default index;
+export default app;
