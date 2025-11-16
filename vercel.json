@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "index.js": {
+      "includeFiles": "{public,Database}/**"
+    }
+  },
+  "rewrites": [
+    { "source": "/", "destination": "/public/index.html" },
+    { "source": "/data", "destination": "/index.js" },
+    { "source": "/(.*)", "destination": "/public/$1" }
+  ]
+}
