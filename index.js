@@ -21,7 +21,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
+app.get('/Dashboard', (req, res) => {
   res.sendFile(path.join(__dirname,"public","index.html"));
 });
 
