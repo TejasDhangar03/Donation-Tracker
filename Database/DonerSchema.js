@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 const DonerSchema = new mongoose.Schema({
+
     name: {
         type: String,
         required: true
     },
     date: {
-        type: String,
-        required: true,
-        unique: true
+        type: Date,
+        required: true
     },
     amount: {
         type: Number,

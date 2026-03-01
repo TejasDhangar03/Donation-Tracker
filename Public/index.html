@@ -7,6 +7,7 @@
     <title>Donation Traker</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="../Styles/style.css">
+    <link rel="shortcut icon" href="./Assets/Imgs/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -14,7 +15,7 @@
         <nav>
             <div class="container">
                 <div class="name">
-                    <h3s>Donetion Traker</h3>
+                    <h3>Donation Tracker</h3>
                 </div>
                 <div class="btn">
                     <button id="refresh">Refresh</button>
@@ -40,8 +41,31 @@
         <div class="donerno donerchart">
             <canvas id="donationChart"></canvas>
         </div>
+
+        <div class="insert">
+            <h2>Insert Donation</h2>
+            <div class="name ins">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="date ins">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="amount ins">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" required>
+            </div>
+
+            <button class="submit" type="submit">Submit</button>
+        </div>
         <script src="../Scripts/script.js"></script>
     </main>
+    <footer>
+        All rights reserved &copy; 2026 Iron Tejas&trade;
+    </footer>
 </body>
 
 </html>

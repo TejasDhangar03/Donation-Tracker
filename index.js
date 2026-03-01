@@ -28,6 +28,7 @@ app.get('/Dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'Public', 'index.html'));
 });
 
+
 // Data API
 app.get('/data', async (req, res) => {
   try {
@@ -72,10 +73,28 @@ app.get('/data', async (req, res) => {
   }
 });
 
-// ❌ REMOVE app.listen()
-// ✅ Export default for Vercel
+app.post('/add', async (req, res) => {
+  try {
+    const { name, amount, date } = req.body;
+    console.log(name, amount, date);
+
+    const newDoner = new Doner({
+      name,
+      amount,
+      date
+    });
+
+    await newDoner.save();
+    res.status(200).json({ status: 200, message: "Data Inserted" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ status: 500, message: "Error Occured" });
+  }
+});
+
+// added for vercel deployment
 export default app;
 
-app.listen(5000, () => { 
-  console.log("Server is running on port 5000"); 
+app.listen(5000, () => {
+  console.log("Server is running on port 5000");
 });
