@@ -10,6 +10,7 @@
     {
       "src": "/(.*)",
       "dest": "/"
-    }
+    },
+    { "src": "/Dashboard", "dest": "/index.html" }
   ]
 }
